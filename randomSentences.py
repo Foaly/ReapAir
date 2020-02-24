@@ -2,8 +2,7 @@ import random
 import math
 
 
-def main():
-    filename = "./Sätze_de.txt"
+def parseInput(filename):
     sentences = []
 
     with open(filename, 'r') as inputFile:
@@ -16,6 +15,14 @@ def main():
                 sentences.append(line)
             # get next line
             line = inputFile.readline()
+
+    return sentences
+
+
+# Weniger Arbeiten mehr Techsupport!
+def main():
+    filename = "./Sätze_de.txt"
+    sentences = parseInput(filename)
 
     length = len(sentences)
     numberOfSenctences = 10
@@ -32,6 +39,7 @@ def main():
         print(str(lineNumber) + ": " + sentences[index])
         lineNumber += 1
     print()
+
 
 if __name__ == '__main__':
     main()
