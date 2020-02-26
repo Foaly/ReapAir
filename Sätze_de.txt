@@ -117,7 +117,7 @@ Die in der Abbildung gezeigten Bereiche nicht berühren. Andernfalls kann die no
 Sie können nicht die Tinten-Versorgungs-Einheiten verwenden, die mit dem Ersatzdrucker geliefert wurden.
 Berühren Sie nicht den grünen Chip an der Seite der Wartungsbox. Andernfalls kann die normale Funktionsweise beeinträchtigt werden.
 Halten Sie die Wartungsbox von direkter Sonneneinstrahlung fern.
-Prüfen Sie die Meldung und tippen Sie dann auf Fortf..
+Prüfen Sie die Meldung und tippen Sie dann auf "Fortfahren".
 Wählen Sie "Nein, später erinnern".
 Klicken Sie auf Drucken.
 Brechen Sie den Druckauftrag ab.
@@ -163,3 +163,41 @@ Schalten Sie das Notebook ein.
 Klicken Sie auf „Next“.
 Klicken Sie auf Weiter und folgen Sie den weiteren Anweisungen auf dem Bild-schirm, um den Auslieferungszustand wieder herzustellen.
 Betätigen Sie den Ein-/Ausschalter.
+
+
+
+
+## selbst ausgedacht
+
+Notieren Sie die Seriennumber zur späteren Verwendung.
+Kontrollieren Sie alle Verbindungen.
+Stellen Sie sicher, dass keine Verbindungen lose oder fehlerhaft sind.
+Kontrollieren Sie, ob die Batterien leer sind.
+Alle Warnungen beachten.
+Üben Sie keine Gewalt auf Bedienelemente, Anschlüsse und Leitungen aus.
+Nehmen Sie keine Veränderungen am Gerät oder Zubehör vor.
+Bitte die Seiten links und rechts nicht vertauschen!
+Sicherung von Fachmann ersetzen lassen.
+Lautstärke an „Volume“-Regler erhöhen.
+Gerät offen einen halben Tag trocknen lassen.
+Lösen Sie Schrauben 3+4, passen Sie Arm B an Ihre Bedürfnisse an und fixieren Sie ihn wieder.
+Deckel abnehmen.
+Setzen Sie den Radiator von unten an den Deckel und Schrauben Sie ihn fest.
+Schrauben lösen und Rahmen abnehmen.
+Setzen Sie den Rahmen wieder ein.
+Ziehen Sie den Wechselrahmen herraus.
+Ziehen Sie den Staubfilter nach hinten raus.
+Überprüfen Sie ob eine Diskette im Diskettenlaufwerk eingelegt ist.
+Vergewissern Sie sich, dass keine der Tasten klemmt.
+Wenn Signaltöne ausgegeben werden oder eine Logoanzeige erscheint, lassen Sie die Taste F11 los.
+Befolgen Sie die angezeigten Anweisungen.
+Ziehen Sie das Mauskabel vom Computer ab.
+Drücken Sie wiederholt die F11 Taste.
+Schalten Sie den Computer aus.
+Starten Sie den Computer erneut.
+Befolgen Sie die Anweisungen auf dem Bildschirm.
+Schalten Sie den Computer ein und befolgen Sie die Anweisungen auf dem Bildschirm.
+Klicken Sie auf "OK".
+Starten Sie den Computer und das Betriebssystem.
+Wenn Sie aufgefordert werden ein Kennwort einzugeben, geben Sie das aktuelle Kennwort ein.
+
