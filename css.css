@@ -1,0 +1,107 @@
+body {
+  background: rgb(204,204,204);
+  font-family: Helvetica;
+}
+
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+
+page[size="A4"] {  
+  width: 21cm;
+  height: 29.7cm; 
+}
+
+page[size="A4"][layout="landscape"] {
+  width: 29.7cm;
+  height: 21cm;  
+}
+
+page[size="A3"] {
+  width: 29.7cm;
+  height: 42cm;
+}
+
+page[size="A3"][layout="landscape"] {
+  width: 42cm;
+  height: 29.7cm;  
+}
+
+page[size="A5"] {
+  width: 14.8cm;
+  height: 21cm;
+}
+
+page[size="A5"][layout="landscape"] {
+  width: 21cm;
+  height: 14.8cm;  
+}
+
+@media print {
+  body, page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+
+#column {
+	height: 80%;
+	float: left;
+	column-count: 2;
+	column-gap: 0;
+	column-fill: auto;
+	padding-top: 80px;
+}
+
+#heading {
+  text-align: center;
+  padding-bottom: 50px;
+  margin: 0px;
+}
+
+#content {
+  height: 100%;
+  padding: 0px 50px;
+}
+
+li {
+  font-size: 13pt;
+  line-height: 16pt;
+  margin-top: 15px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+ul li:before {
+  content: '—';
+  padding-right: 10px;
+}
+ul li{
+  padding-left: 40px;
+  text-indent: -27px;
+}
+
+.person {
+  height: 100px;
+  padding-left: 40px;
+}
+
+.verwirrtePerson {
+  height: 125px;
+  padding-left: 40px;
+}
+
+#seperator {
+  width: 2px;
+  height: 100%;
+  margin: 0 50%;
+  background-color: rgb(98, 98, 98);
+}
