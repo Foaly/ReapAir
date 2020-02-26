@@ -50,29 +50,24 @@ page[size="A5"][layout="landscape"] {
 
 
 #column {
-	height: 80%;
-	float: left;
-	column-count: 2;
-	column-gap: 0;
-	column-fill: auto;
-	padding-top: 80px;
+  height: 80%;
+  float: left;
+  column-count: 2;
+  column-gap: 0;
+  column-fill: auto;
+  padding-top: 70px;
 }
 
 #heading {
   text-align: center;
   padding-bottom: 50px;
   margin: 0px;
+  font-size: 23pt;
 }
 
 #content {
   height: 100%;
   padding: 0px 50px;
-}
-
-li {
-  font-size: 13pt;
-  line-height: 16pt;
-  margin-top: 15px;
 }
 
 ul {
@@ -84,9 +79,16 @@ ul li:before {
   content: '—';
   padding-right: 10px;
 }
+
 ul li{
   padding-left: 40px;
   text-indent: -27px;
+}
+
+li {
+  font-size: 13pt;
+  line-height: 16pt;
+  margin-top: 15px;
 }
 
 .person {
@@ -104,4 +106,22 @@ ul li{
   height: 100%;
   margin: 0 50%;
   background-color: rgb(98, 98, 98);
+}
+
+#pageNumberLeft {
+  margin-top: -40px;
+  margin-left: 30px;
+  display: block;
+}
+
+#chapterTitle {
+  margin: 0px 5px;
+  font-size: 10pt;
+  font-weight: lighter;
+}
+
+#pageNumberRight {
+  margin-top: -16px;
+  margin-right: 30px;
+  float: right;
 }
