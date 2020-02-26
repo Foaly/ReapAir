@@ -1,5 +1,6 @@
 import random
 import math
+import argparse
 
 
 def parseInput(filename):
@@ -24,10 +25,20 @@ def main():
     filename = "./Sätze_de.txt"
     sentences = parseInput(filename)
 
-    length = len(sentences)
-    numberOfSenctences = 10
-    randomIndices = []
+    # setup argument parser
+    description = "This program randomly generates Reparatur Anleitungen.\nWeniger Arbeiten, mehr Techsupport!"
+    argParser = argparse.ArgumentParser(description=description, formatter_class=argparse.RawDescriptionHelpFormatter,)
+    argParser.add_argument("-n", "--count", help="The number of sentences generated.", type=int, default=10)
+    args = argParser.parse_args()
 
+    # Clip count argument to usable range
+    length = len(sentences)
+    numberOfSenctences = args.count
+    if numberOfSenctences < 1 or numberOfSenctences > length:
+        numberOfSenctences = 10
+
+    # randomly choose indices without repetition
+    randomIndices = []
     while len(randomIndices) < numberOfSenctences:
         index = math.floor(random.random() * length)
         if index not in randomIndices:
