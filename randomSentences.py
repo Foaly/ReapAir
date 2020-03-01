@@ -64,11 +64,11 @@ def main():
 
     # Clip count argument to usable range
     length = len(sentences)
-    numberOfSenctences = args.count
-    if numberOfSenctences < 1 or numberOfSenctences > length:
-        numberOfSenctences = 10
+    numberOfSentences = args.count
+    if numberOfSentences < 1 or numberOfSentences > length:
+        numberOfSentences = 10
 
-    randomIndices = generateIndicesWithoutRepetition(numberOfSenctences, length - 1)
+    randomIndices = generateIndicesWithoutRepetition(numberOfSentences, length - 1)
     lineNumber = 1
     print()
     for index in randomIndices:
