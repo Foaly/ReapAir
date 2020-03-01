@@ -20,6 +20,22 @@ def parseInput(filename):
     return sentences
 
 
+def generateIndicesWithoutRepetition(numberOfIndicies, maxIndex):
+    """
+    A helper function to randomly generator indices without repetition
+    between [0, maxIndex].
+
+    :param numberOfIndicies: number of indicies to generate
+    :param maxIndex: the highest possible index
+    """
+    randomIndices = []
+    while len(randomIndices) < numberOfIndicies:
+        index = round(random.random() * maxIndex)  # TODO: can random become 1.0 ?
+        if index not in randomIndices:
+            randomIndices.append(index)
+    return randomIndices
+
+
 # Weniger Arbeiten mehr Techsupport!
 def main():
     filename = "./Sätze_de.txt"
@@ -37,13 +53,7 @@ def main():
     if numberOfSenctences < 1 or numberOfSenctences > length:
         numberOfSenctences = 10
 
-    # randomly choose indices without repetition
-    randomIndices = []
-    while len(randomIndices) < numberOfSenctences:
-        index = math.floor(random.random() * length)
-        if index not in randomIndices:
-            randomIndices.append(index)
-
+    randomIndices = generateIndicesWithoutRepetition(numberOfSenctences, length - 1)
     lineNumber = 1
     print()
     for index in randomIndices:
