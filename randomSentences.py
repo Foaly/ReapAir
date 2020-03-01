@@ -36,6 +36,21 @@ def generateIndicesWithoutRepetition(numberOfIndicies, maxIndex):
     return randomIndices
 
 
+def generateHTML():
+    with open("template.html", 'r') as templateFile:
+        with open("index.html", 'w') as outputFile:
+            sentences = parseInput("./Sätze_de.txt")
+            numberOfSentences = random.randint(13, 16)
+            randomIndices = generateIndicesWithoutRepetition(numberOfSentences, len(sentences) - 1)
+            tagList = ""
+
+            for index in randomIndices:
+                tagList = tagList + "<li>" + sentences[index] + "</li>\n"
+
+            template = templateFile.read()
+            outputFile.write(template.replace("$$LIST$$", tagList))
+
+
 # Weniger Arbeiten mehr Techsupport!
 def main():
     filename = "./Sätze_de.txt"
