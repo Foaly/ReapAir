@@ -72,7 +72,7 @@ Verwenden Sie die vom Fahrzeughersteller empfohlenen Anzugsmomente.
 Prüfen Sie nach jedem Austausch oder jeder Reparatur das komplette System auf seine Funktion.
 Führen Sie nach jedem Einbau eines Gerätes in das Fahrzeug eine Probefahrt durch.
 Dokumentieren Sie die Prüfung, z.B. in einem Prüfbuch.
-
+
 Die endgültige und fachgerechte Außerbetriebnahme und Entsorgung des Produktes hat nach den geltenden gesetzlichen Bestimmungen des Anwenderlandes zu erfolgen.
 Insbesondere die Bestimmungen für die Entsorgung der Batterien, der Betriebsmittel und der elektrischen Anlage sind zu beachten.
 Elektrogeräte sind als Abfall getrennt von Haus- oder Gewerbemüll zu sammeln und wiederzuverwerten oder vorschriftsmäßig zu entsorgen.
@@ -161,7 +161,7 @@ Entnehmen Sie die Disc und starten Sie nun das Notebook erneut.
 Entfernen Sie alle eventuell eingesetzten Massenspeichergeräte (Speicherkarten, USB-Stick etc.).
 Schalten Sie das Notebook ein.
 Klicken Sie auf „Next“.
-Klicken Sie auf Weiter und folgen Sie den weiteren Anweisungen auf dem Bild-schirm, um den Auslieferungszustand wieder herzustellen.
+Klicken Sie auf Weiter und folgen Sie den weiteren Anweisungen auf dem Bildschirm, um den Auslieferungszustand wieder herzustellen.
 Betätigen Sie den Ein-/Ausschalter.
 
 
@@ -200,4 +200,5 @@ Schalten Sie den Computer ein und befolgen Sie die Anweisungen auf dem Bildschir
 Klicken Sie auf "OK".
 Starten Sie den Computer und das Betriebssystem.
 Wenn Sie aufgefordert werden ein Kennwort einzugeben, geben Sie das aktuelle Kennwort ein.
+Zu Risiken und Nebenwirkungen fragen sie Ihren Arzt oder Apotheker.
 
