@@ -28,7 +28,7 @@ def get_sentences(key, strip_comments="#", strip_empty=True):
     strip_empty (optional) bool: If True, empty lines will not appear in the
     final result.
     """
-    if not key in SENTENCES.keys():
+    if key not in SENTENCES.keys():
         raise ValueError(f"Sentences for {key} not found")
 
     sentences_path = ASSETS_PATH / SENTENCES[key]
