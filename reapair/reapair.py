@@ -71,7 +71,11 @@ def mixupSentences(sentences, n):
 @click.option("--overwrite", default=False, help="Overwrite existing HTML output file.")
 @click.command()
 def cli(lang, n, quiet, html, template, out, overwrite):
-    sentences = get_sentences(lang)
+    try:
+        sentences = get_sentences(lang)
+    except Exception as e:
+        sys.exit(e)
+
     instructions = mixupSentences(sentences, n)
 
     if not quiet:
