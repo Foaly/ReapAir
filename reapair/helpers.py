@@ -45,7 +45,7 @@ def get_sentences(key, strip_comments="#", strip_empty=True):
     sentences = []
     for line in lines:
         if strip_comments:
-            if line.startswith("strip_comments"):
+            if line.startswith(strip_comments):
                 continue
         stripped = line.strip()
 
