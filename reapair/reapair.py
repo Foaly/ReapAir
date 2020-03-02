@@ -71,6 +71,9 @@ def mixupSentences(sentences, n):
 @click.option("--overwrite", default=False, help="Overwrite existing HTML output file.")
 @click.command()
 def cli(lang, n, quiet, html, template, out, overwrite):
+    """
+    reapAir is a tool to generate and distribute useful repair instructions for your everyday life.
+    """
     try:
         sentences = get_sentences(lang)
     except Exception as e:
