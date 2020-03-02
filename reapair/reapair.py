@@ -24,7 +24,7 @@ def generateHTML(instructions, template_path, out, overwrite=False):
 
     out_path = Path(out)
 
-    if out_path.exists():
+    if out_path.exists() and not overwrite:
         raise FileExistsError(f"File {out} already exists and will not be overwritten.")
     with open(out_path, "w") as outfile:
         outfile.write(result)
@@ -79,4 +79,7 @@ def cli(lang, n, quiet, html, template, out, overwrite):
             print(instruction)
 
     if html:
-        generateHTML(instructions, template, out)
+        try:
+            generateHTML(instructions, template, out)
+        except Exception as e:
+            sys.exit(e)
