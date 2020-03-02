@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "reapair"
+version = "0.1.0"
+description = "Work less, support more."
+authors = ["Foaly"]
+
+[tool.poetry.scripts]
+reapair = 'reapair.reapair:cli'
+
+[tool.poetry.dependencies]
+python = "^3.7"
+click = "^7.0"
+jinja2 = "^2.11.1"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+flake8 = "^3.7.9"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
