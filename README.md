@@ -1,6 +1,10 @@
 ReapAir
 ========
 
+<p align="center">
+  <img width="100%" src="assets/reapAir.png">
+</p>
+
 Work less, support more. 
 
 **ReapAir** is a tool to generate and distribute useful repair instructions for your everyday life. 
