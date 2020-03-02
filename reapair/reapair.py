@@ -37,7 +37,6 @@ def mixupSentences(sentences, n):
     """
     if n > len(sentences):
         n = len(sentences)
-    length = len(sentences)
 
     return random.sample(sentences, n)
 
