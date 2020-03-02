@@ -84,6 +84,6 @@ def cli(lang, n, quiet, html, template, out, overwrite):
 
     if html:
         try:
-            generateHTML(instructions, template, out)
+            generateHTML(instructions, template, out, overwrite)
         except Exception as e:
             sys.exit(e)
