@@ -5,7 +5,7 @@ description = "Work less, support more."
 authors = ["Foaly"]
 
 [tool.poetry.scripts]
-reapair = 'reapair.reapair:cli'
+reapAir = 'reapair.reapair:cli'
 
 [tool.poetry.dependencies]
 python = "^3.7"
