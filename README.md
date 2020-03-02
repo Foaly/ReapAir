@@ -26,7 +26,7 @@ $ pip install --user git+https://github.com/Foaly/ReapAir
 The installation gives you a shell command **reapair** which can be executed from anywhere.
 
 ```zsh
-$ reapair
+$ reapAir
 ```
 ## Authors
 
