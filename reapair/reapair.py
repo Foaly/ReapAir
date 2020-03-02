@@ -47,7 +47,7 @@ def mixupSentences(sentences, n):
     default="de_DE",
     help="Set the language of the generated repair instructions.",
 )
-@click.option("-n", default=10, help="Set the language of the generated repair")
+@click.option("-n", default=10, help="Number of instructions to be created.")
 @click.option(
     "--quiet",
     is_flag=True,
