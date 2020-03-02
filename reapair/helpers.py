@@ -1,6 +1,6 @@
 from jinja2 import Template
-from pathlib import Path
 from .settings import ASSETS_PATH, SENTENCES
+
 
 def get_template(template_path):
     """
@@ -8,14 +8,13 @@ def get_template(template_path):
     object.
     """
     if not template_path.is_file():
-        raise FileNotFoundError(
-            f"The template file at {template_path} does not exist."
-        )
+        raise FileNotFoundError(f"The template file at {template_path} does not exist.")
 
     with open(template_path) as template_file:
         template_content = template_file.read()
 
     return Template(template_content)
+
 
 def get_sentences(key, strip_comments="#", strip_empty=True):
     """
