@@ -75,3 +75,8 @@ $ reapAir --html --out example-010.html --template template.html --quiet
 
 * Foaly
 * olf42
+
+## License
+
+All code in this repository is licensed under the GPLv3.
+For more details refer to [`LICENSE.md`](./LICENSE.md).
