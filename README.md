@@ -5,9 +5,9 @@ ReapAir
   <img width="100%" src="assets/reapAir.png">
 </p>
 
-Work less, support more. 
+Work less, support more.
 
-**ReapAir** is a tool to generate and distribute useful repair instructions for your everyday life. 
+**ReapAir** is a tool to generate and distribute useful repair instructions for your everyday life.
 
 ## Installation
 
@@ -39,7 +39,7 @@ $ pip install --user git+https://github.com/Foaly/ReapAir
 The installation gives you a shell command **reapair** which can be executed from anywhere.
 
 ```zsh
-$ reapair --help
+$ reapAir --help
 
 Usage: reapAir [OPTIONS]
 
@@ -65,7 +65,7 @@ Generate 15 sentences and print them to STDOUT
 $ reapAir -n 15
 ```
 
-Generate 10 sentences (default) and create a html file named *example-010.html* and use a custom HTML template named *template.html*. Furthermore suppress output on STDOUT. 
+Generate 10 sentences (default) and create a html file named *example-010.html* and use a custom HTML template named *template.html*. Furthermore suppress output on STDOUT.
 
 ```zsh
 $ reapAir --html --out example-010.html --template template.html --quiet
@@ -75,7 +75,3 @@ $ reapAir --html --out example-010.html --template template.html --quiet
 
 * Foaly
 * olf42
-
-
-
-
