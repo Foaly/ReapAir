@@ -47,7 +47,11 @@ def mixupSentences(sentences, n):
     default="de_DE",
     help="Set the language of the generated repair instructions.",
 )
-@click.option("-n", default=10, help="Number of instructions to be created.")
+@click.option(
+    "-n",
+    default=10,
+    help="Number of instructions to be created."
+)
 @click.option(
     "--quiet",
     is_flag=True,
@@ -55,7 +59,10 @@ def mixupSentences(sentences, n):
     help="Do not print the sentences to STDOUT. Default: False",
 )
 @click.option(
-    "--html", is_flag=True, default=False, help="Render HTML output. Default: False"
+    "--html",
+    is_flag=True,
+    default=False,
+    help="Render HTML output. Default: False"
 )
 @click.option(
     "--template",
@@ -65,10 +72,16 @@ def mixupSentences(sentences, n):
 )
 @click.option(
     "--out",
+    type=click.Path(),
     default=f"reapair_{datetime.datetime.now().isoformat()}.html",
     help="Filename of the HTML output file.",
 )
-@click.option("--overwrite", default=False, help="Overwrite existing HTML output file.")
+@click.option(
+    "--overwrite",
+    is_flag=True,
+    default=False,
+    help="Overwrite existing HTML output file. Default: False"
+)
 @click.command()
 def cli(lang, n, quiet, html, template, out, overwrite):
     """
