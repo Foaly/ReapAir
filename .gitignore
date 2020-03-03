@@ -1,4 +1,5 @@
 # Python
+reapair_venv/*
 venv/*
 __pycache__
 *.egg-info/*
