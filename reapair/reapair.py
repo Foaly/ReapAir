@@ -50,7 +50,7 @@ def mixupSentences(sentences, n):
 @click.option(
     "-n",
     default=10,
-    help="Number of instructions to be created."
+    help="Number of instructions to be created. Default: 10"
 )
 @click.option(
     "--quiet",
