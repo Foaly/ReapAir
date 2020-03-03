@@ -34,6 +34,16 @@ $ pip install git+https://github.com/Foaly/ReapAir
 $ pip install --user git+https://github.com/Foaly/ReapAir
 ```
 
+### Development installation
+
+```zsh
+$ git clone git@github.com:Foaly/ReapAir.git
+$ python3 -m venv ./PATH_TO_VENV
+$ source ./PATH_TO_VENV/bin/activate
+$ pip install poetry
+$ poetry install
+```
+
 ## Usage
 
 The installation gives you a shell command **reapair** which can be executed from anywhere.
