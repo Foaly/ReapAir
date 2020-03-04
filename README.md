@@ -47,12 +47,12 @@ Usage: reapAir [OPTIONS]
   for your everyday life.
 
 Options:
-  --overwrite TEXT    Overwrite existing HTML output file.
-  --out TEXT          Filename of the HTML output file.
+  --overwrite         Overwrite existing HTML output file. Default: False
+  --out PATH          Filename of the HTML output file.
   --template PATH     Specify a custom HTML template to be used.
   --html              Render HTML output. Default: False
   --quiet             Do not print the sentences to STDOUT. Default: False
-  -n INTEGER          Number of instructions to be created.
+  -n INTEGER          Number of instructions to be created. Default: 10
   -l, --lang [de_DE]  Set the language of the generated repair instructions.
   --help              Show this message and exit.
 ```
