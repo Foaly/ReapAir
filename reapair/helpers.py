@@ -16,6 +16,7 @@
 
 
 from jinja2 import Template
+import json
 from .settings import ASSETS_PATH, SENTENCES
 
 
@@ -36,7 +37,7 @@ def get_template(template_path):
 def get_sentences(key, strip_comments="#", strip_empty=True):
     """
     Fetches the specified (i.e. language, style, category, ...) sentences
-    from a file and returnes a list of these.
+    from a file and returns a list of these.
 
     strip_comments (optional) string: If False (or empty string),
     this setting is ignored. If set, lines starting with the given string
@@ -56,19 +57,6 @@ def get_sentences(key, strip_comments="#", strip_empty=True):
         )
 
     with open(sentences_path) as sentences_file:
-        lines = sentences_file.readlines()
+        sentences_dict = json.load(sentences_file)
 
-    sentences = []
-    for line in lines:
-        if strip_comments:
-            if line.startswith(strip_comments):
-                continue
-        stripped = line.strip()
-
-        if strip_empty:
-            if not len(stripped):
-                continue
-
-        sentences.append(stripped)
-
-    return sentences
+    return sentences_dict

@@ -48,9 +48,9 @@ def generateHTML(instructions, template_path, out, overwrite=False):
         outfile.write(result)
 
 
-def mixupSentences(sentences, n):
+def generate_instructions(sentences, n):
     """
-    Selects a subset of sentences and returnes them in random order.
+    Selects a subset of sentences and returns them in random order.
     """
     if n > len(sentences):
         n = len(sentences)
@@ -106,11 +106,11 @@ def cli(lang, n, quiet, html, template, out, overwrite):
     reapAir is a tool to generate and distribute useful repair instructions for your everyday life.
     """
     try:
-        sentences = get_sentences(lang)
+        sentences_dict = get_sentences(lang)
     except Exception as e:
         sys.exit(e)
 
-    instructions = mixupSentences(sentences, n)
+    instructions = generate_instructions(sentences_dict["instructions"], n)
 
     if not quiet:
         for instruction in instructions:
