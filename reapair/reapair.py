@@ -119,7 +119,7 @@ def print_instructions(instructions):
     help="Print to the thermal printer. Default: False"
 )
 @click.command()
-def cli(lang, n, quiet, html, template, out, overwrite):
+def cli(lang, n, quiet, html, template, out, overwrite, print):
     """
     reapAir is a tool to generate and distribute useful repair instructions for your everyday life.
     """
