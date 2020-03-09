@@ -25,6 +25,7 @@ import sys
 from .helpers import get_sentences, get_template
 from pathlib import Path
 from .settings import DEFAULT_TEMPLATE
+from escpos.printer import File
 
 cwd = Path.cwd()
 
@@ -56,6 +57,17 @@ def mixupSentences(sentences, n):
         n = len(sentences)
 
     return random.sample(sentences, n)
+
+
+def print_instructions(instructions):
+    """
+    Print instructions to a thermal printer.
+    :param instructions:
+    """
+
+    printer = File("/dev/usb/lp0")
+    printer.text("Hi, na World!")
+    printer.cut()
 
 
 @click.option(
@@ -100,6 +112,12 @@ def mixupSentences(sentences, n):
     default=False,
     help="Overwrite existing HTML output file. Default: False"
 )
+@click.option(
+    "--print",
+    is_flag=True,
+    default=False,
+    help="Print to the thermal printer. Default: False"
+)
 @click.command()
 def cli(lang, n, quiet, html, template, out, overwrite):
     """
@@ -115,6 +133,9 @@ def cli(lang, n, quiet, html, template, out, overwrite):
     if not quiet:
         for instruction in instructions:
             print(instruction)
+
+    if print:
+        print_instructions(instructions)
 
     if html:
         try:
