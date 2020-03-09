@@ -70,6 +70,7 @@ def print_instructions(instructions):
     for instruction in instructions:
         printer.text(instruction + "\n\n")
     printer.image("assets/Fragezeichen.png")
+    printer.image("assets/Überrascht.png")
     printer.text("\n")
     printer.cut()
 
