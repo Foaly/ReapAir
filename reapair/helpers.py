@@ -34,17 +34,10 @@ def get_template(template_path):
     return Template(template_content)
 
 
-def get_sentences(key, strip_comments="#", strip_empty=True):
+def get_sentences(key):
     """
     Fetches the specified (i.e. language, style, category, ...) sentences
-    from a file and returns a list of these.
-
-    strip_comments (optional) string: If False (or empty string),
-    this setting is ignored. If set, lines starting with the given string
-    will not be in the final result.
-
-    strip_empty (optional) bool: If True, empty lines will not appear in the
-    final result.
+    from a json file and returns the parsed json as a dictionary.
     """
     if key not in SENTENCES.keys():
         raise ValueError(f"Sentences for {key} not found")

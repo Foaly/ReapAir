@@ -21,6 +21,7 @@ import click
 import datetime
 import random
 import sys
+import math
 
 from .helpers import get_sentences, get_template
 from pathlib import Path
@@ -48,14 +49,36 @@ def generateHTML(instructions, template_path, out, overwrite=False):
         outfile.write(result)
 
 
-def generate_instructions(sentences, n):
+def generate_instructions(sentences_dict: dict, n):
     """
-    Selects a subset of sentences and returns them in random order.
+    Selects a mix of sentences according to a predefined distribution
+    from the different lists contained in the dict.
     """
-    if n > len(sentences):
-        n = len(sentences)
+    if not isinstance(sentences_dict, dict):
+        raise TypeError(f"'sentence_dict' must be of type 'dict', instead got '{type(sentences_dict)}'")
 
-    return random.sample(sentences, n)
+    safety_notes = sentences_dict["safety_notes"]
+    instructions = sentences_dict["instructions"]
+    conditionals = sentences_dict["conditionals"]
+    finals = sentences_dict["finals"]
+
+    if n <= 3:
+        n = min(n, len(instructions))
+        return random.sample(instructions, n)
+
+    # sentence type distribution
+    safety_notes_count = min(math.ceil(n * 0.2), len(safety_notes))
+    conditionals_count = min(math.ceil(n * 0.1), len(conditionals))
+    finals_count = 1
+    instructions_count = n - (safety_notes_count + conditionals_count + finals_count)
+    instructions_count = min(instructions_count, len(instructions))
+
+    result = random.sample(safety_notes, safety_notes_count)
+    result += random.sample(instructions, instructions_count)
+    result += random.sample(conditionals, conditionals_count)
+    result += random.sample(finals, finals_count)
+
+    return result
 
 
 @click.option(
@@ -110,7 +133,10 @@ def cli(lang, n, quiet, html, template, out, overwrite):
     except Exception as e:
         sys.exit(e)
 
-    instructions = generate_instructions(sentences_dict["instructions"], n)
+    if n < 1:
+        sys.exit(f"Value for '-n' has to be greater than 0. Received: {n}")
+
+    instructions = generate_instructions(sentences_dict, n)
 
     if not quiet:
         for instruction in instructions:
