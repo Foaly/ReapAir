@@ -69,6 +69,7 @@ def print_instructions(instructions):
     printer.charcode("EURO") # activate Umlaute
     for instruction in instructions:
         printer.text(instruction + "\n\n")
+    printer.image("assets/Fragezeichen.png")
     printer.text("\n")
     printer.cut()
 
