@@ -118,13 +118,13 @@ def print_instructions(instructions):
     help="Overwrite existing HTML output file. Default: False"
 )
 @click.option(
-    "--print",
+    "--printer",
     is_flag=True,
     default=False,
     help="Print to the thermal printer. Default: False"
 )
 @click.command()
-def cli(lang, n, quiet, html, template, out, overwrite, print):
+def cli(lang, n, quiet, html, template, out, overwrite, printer):
     """
     reapAir is a tool to generate and distribute useful repair instructions for your everyday life.
     """
@@ -139,7 +139,7 @@ def cli(lang, n, quiet, html, template, out, overwrite, print):
         for instruction in instructions:
             print(instruction)
 
-    if print:
+    if printer:
         print_instructions(instructions)
 
     if html:
