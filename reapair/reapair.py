@@ -66,12 +66,12 @@ def print_instructions(instructions):
     """
 
     printer = File("/dev/usb/lp0")
-    printer.charcode("EURO") # activate Umlaute
+    printer.charcode("EURO")  # activate Umlaute
     for instruction in instructions:
-        printer.text(instruction + "\n\n")
-    printer.set(align="center")
-    printer.image("assets/combined.png")
-    printer.text("\n")
+        printer.textln(instruction)
+        printer.ln()
+    printer.image("assets/combined.png", center=True)
+    printer.ln()
     printer.cut()
 
 
