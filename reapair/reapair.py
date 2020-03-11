@@ -65,8 +65,7 @@ def print_instructions(instructions):
     :param instructions:
     """
 
-    printer = File("/dev/usb/lp0")
-    printer.charcode("EURO")  # activate Umlaute
+    printer = File("/dev/usb/lp0", profile="TM-T88II")
     for instruction in instructions:
         printer.textln(instruction)
         printer.ln()
