@@ -62,10 +62,16 @@ def mixupSentences(sentences, n):
 def print_instructions(instructions):
     """
     Print instructions to a thermal printer.
-    :param instructions:
+    :param instructions: list of strings containing the instructions
     """
 
-    printer = File("/dev/usb/lp0", profile="TM-T88II")
+    try:
+        printer = File("/dev/usb/lp0", profile="TM-T88II")
+    except FileNotFoundError as e:
+        print("Received exception while trying to access printer:")
+        print(str(e))
+        return
+
     for instruction in instructions:
         printer.textln(instruction)
         printer.ln()
