@@ -74,8 +74,22 @@ def generate_instructions(sentences_dict: dict, n):
     instructions_count = min(instructions_count, len(instructions))
 
     result = random.sample(safety_notes, safety_notes_count)
-    result += random.sample(instructions, instructions_count)
-    result += random.sample(conditionals, conditionals_count)
+    inst = random.sample(instructions, instructions_count)
+
+    random_indices = []
+    while len(random_indices) < conditionals_count:
+        index = random.randrange(1, len(inst), 2)
+        if index not in random_indices:
+            random_indices.append(index)
+
+    cond = random.sample(conditionals, conditionals_count)
+
+    i = 0
+    for index in random_indices:
+        inst.insert(index, cond[i])
+        i += 1
+
+    result += inst
     result += random.sample(finals, finals_count)
 
     return result
