@@ -53,7 +53,29 @@
         "Genaue Informationen dazu sind bei den Entsorgungsfachbetrieben oder den zuständigen Behörden zu erhalten.",
         "Papier, Pappe und Kunststoffe sind dem Recycling zuzuführen.",
         "Halten Sie die Wartungsbox von direkter Sonneneinstrahlung fern.",
-        "Nach dem Aufbringen einer Schutzfolie reagiert der optische Touchscreen möglicherweise nicht mehr."
+        "Nach dem Aufbringen einer Schutzfolie reagiert der optische Touchscreen möglicherweise nicht mehr.",
+        "Dieses Gerät verfügt über einen sich selbst zurücksetzenden thermischen Schutzschalter, der vor Überhitzung schützt.",
+        "Um Gefahrensituationen durch ein versehentliches Zurücksetzen des thermischen Schutzschalters zu verhindern, darf dieses Gerät nicht an eine externe Schaltvorrichtung, wie z. B. eine Zeitschaltuhr, eine Steckdose, deren Stromversorgung instabil ist oder abreißt, oder an einen Stromkreislauf angeschlossen werden, der vom Versorgungsunternehmen regelmäßig ein- und ausgeschaltet wird.",
+        "Keine Schmier-, Reinigungs-, Poliermittel oder Raumsprays am Gerät anwenden.",
+        "Nehmen Sie das Gerät nicht eigenständig auseinander, da es aufgrund eines falschen Zusammensetzens zu Stromschlag oder Bränden kommen kann.",
+        "Verwenden Sie das Mikrowellengerät niemals zum Aufbewahren und Trocknen von entflammbaren Materialien.",
+        "Das Mikrowellengerät darf nicht an nichtstationären Aufstellungsorten (z. B. Schiffen) betrieben werden.",
+        "Erwärmen Sie im Mikrowellengerät keine Speisen in Warmhalte verpackungen, wie Tüten für gegrillte Hähnchen.",
+        "Erwärmen Sie Eier mit Schale oder ganze, hartgekochte Eier nicht im Mikrowellengerät, da sie explodieren können.",
+        "Quecksilber- oder Flüssigkeitsthermometer sind für hohe Temperaturen ungeeignet und zerbrechen leicht.",
+        "Die Fläche ist kratzempfindlich. Selbst Magnete können Kratzer hervorrufen.",
+        "Geben Sie nie eine Mischung von Wasser mit Öl oder Fett in die Mikrowelle. Sie kann sonst explodieren.",
+        "Versuchen Sie nicht, die Verriegelung der Abdeckung zu umgehen.",
+        "Fassen Sie beim Mixen nicht mit den Händen oder Hilfsmitteln in den Behälter, da es ansonsten zu Körperverletzungen oder Geräteschäden kommen könnte.",
+        "Zur Vermeidung von Hörschäden solltest du die Lautstärke nicht zu hoch einstellen und das Gerät nur für eine begrenzte Dauer bei sehr hoher Lautstärke verwenden.",
+        "Der Brötchen-Aufsatz ist nur zum Aufbacken von Brötchen vorgesehen.",
+        "Lagern Sie den Toaster nie so, dass er in eine Wanne oder in ein Waschbecken fallen kann.",
+        "Eingedrungenes Wasser kann einen Kurzschluss verursachen.",
+        "Sie können Brotscheiben bis maximal 14 mm Dicke toasten.",
+        "Hantieren Sie nicht mit Gegenständen im Röstschacht.",
+        "Tauchen Sie weder den Toaster selbst noch Netzkabel- oder Stecker in Wasser oder andere Flüssigkeiten.",
+        "Benutzen Sie zum Reinigen keinen Dampfreiniger.",
+        "Berühren Sie keine Metallteile und fassen Sie nicht in den Röstschacht."
     ],
     "instructions": [
         "Ersetzen Sie alle Kunststoff- und Gummiteile mit Neuteilen aus dem Reparatursatz.",
@@ -127,7 +149,24 @@
         "Drücken Sie wiederholt die F11 Taste.",
         "Schalten Sie den Computer aus.",
         "Starten Sie den Computer erneut.",
-        "Befolgen Sie die Anweisungen auf dem Bildschirm."
+        "Befolgen Sie die Anweisungen auf dem Bildschirm.",
+        "Schaltet sich Ihr Gerät ab, trennen Sie es von der Stromversorgung und lassen Sie es abkühlen.",
+        "Entfernen Sie den Netzstecker nicht aus der Steckdose, indem Sie am Kabel ziehen.",
+        "Um den Netzstecker zu ziehen, umfassen Sie den Stecker und nicht das Kabel.",
+        "Drehen Sie die Filtermanschette vor der weiteren Verwendung im Uhrzeigersinn, um diese zu verriegeln.",
+        "Stecken Sie nie Gegenstände durch die Lüftungsschlitze in das Gehäuse.",
+        "Berühren Sie keine sich bewegenden Teile.",
+        "Nutzen Sie das Gerät nur für den vorgesehenen Zweck.",
+        "Bei blinkenden Anzeigen ist das Gerät betriebsbereit.",
+        "Öffnen Sie den Deckel und entnehmen Sie die Waffel mit einem Küchenutensil (nicht aus Metall)."
+        "Seien Sie beim Anfassen der scharfen Messer und Schneiden sowie beim Entleeren des Behälters und während der Reinigung besonders vorsichtig.",
+        "Legen Sie keine anderen Lebensmittel darauf, da dies zu Brand und Geräteschaden führen kann.",
+        "Schließen Sie das Gerät nur an eine gut zugängliche Steckdose an, damit Sie ihn bei einem Störfall schnell von Stromnetz trennen können.",
+        "Öffnen Sie das Gehäuse nicht, sondern überlassen Sie die Reparatur Fachkräften.",
+        "Greifen Sie niemals nach einem Elektrogerät, wenn es ins Wasser gefallen ist.",
+        "Verwenden Sie das Netzkabel nicht als Tragegriff.",
+        "Toasten Sie Brot eher hell oder goldgelb anstatt zu dunkel.",
+        "Entfernen Sie verbrannte Stellen."
     ],
     "conditionals": [
         "Ist dies nicht möglich, reinigen Sie diese Teile mit wässrigen Reinigungsmitteln auf Seifenbasis.",
@@ -138,7 +177,12 @@
         "Falls das Problem weiterhin besteht, wiederholen sie die Temperatur.",
         "Wenn Sie aufgefordert werden ein Kennwort einzugeben, geben Sie das aktuelle Kennwort ein.",
         "Wenn Signaltöne ausgegeben werden oder eine Logoanzeige erscheint, lassen Sie die Taste F11 los.",
-        "Wenn möglich üben Sie keine Gewalt auf Bedienelemente, Anschlüsse und Leitungen aus."
+        "Wenn möglich üben Sie keine Gewalt auf Bedienelemente, Anschlüsse und Leitungen aus.",
+        "Wenn das Gerät nicht funktioniert, zunächst sicherstellen, dass die Netzsteckdose unter Strom steht und dass der Stecker richtig in die Netzsteckdose eingesteckt wurde.",
+        "Wenn Sie Eier ohne Schale mit Mikrowellen erhitzen, kann das Eidotter nach dem Garen mit Hochdruck herausspritzen.",
+        "Unabhängig davon, ob Sie eine oder zwei Waffeln zubereiten möchten, müssen Sie die Backform nach dem Befüllen einer Seite drehen. Dadurch werden beide Hälften des Eisens mit Teig bedeckt – nur so erreichen Sie eine hervorragende Konsistenz.",
+        "Sobald die optimale Temperatur erreicht ist, ertönt ein Audiosignal, die Anzeige hört auf zu blinken und leuchtet stetig.",
+        "Wenden Sie sich dazu an eine Fachwerkstatt."
     ],
     "finals": [
         "Lassen Sie eventuell enthaltene Flüssigkeit aus dem Gerät ab.",
@@ -162,6 +206,14 @@
         "Kontrollieren Sie alle Verbindungen.",
         "Alle Warnungen beachten.",
         "Zu Risiken und Nebenwirkungen fragen sie Ihren Arzt oder Apotheker.",
-        "Starten Sie den Computer und das Betriebssystem aus."
+        "Starten Sie den Computer und das Betriebssystem aus.",
+        "Der Monteur kann Ihnen hier weiterhelfen.",
+        "Dieses Gerät ist ausschließlich fürs Haartrocknen vorgesehen.",
+        "Fettarme Waffeln sind manchmal schwer zu entnehmen.",
+        "Waffeln bleiben länger knusprig, wenn Sie sie nicht stapeln oder auf durchgehenden Oberflächen ablegen.",
+        "Benutzen Sie das Gerät nicht im Freien.",
+        "Leeren Sie die Krümelschublade regelmäßig.",
+        "Stellen Sie mit dem Regler 8 einen mittleren Bräunungsgrad ein."
+
     ]
 }
