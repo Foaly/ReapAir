@@ -72,6 +72,10 @@ def print_instructions(instructions):
         print(str(e))
         return
 
+    if printer.paper_status() == 0:
+        print("Printer is out of paper!")
+        return
+
     for instruction in instructions:
         printer.textln(instruction)
         printer.ln()
