@@ -24,7 +24,7 @@ import sys
 
 from .helpers import get_sentences, get_template
 from pathlib import Path
-from .settings import DEFAULT_TEMPLATE
+from .settings import DEFAULT_TEMPLATE, ASSETS_PATH
 from escpos.printer import File
 
 cwd = Path.cwd()
@@ -79,7 +79,7 @@ def print_instructions(instructions):
     for instruction in instructions:
         printer.textln(instruction)
         printer.ln()
-    printer.image("assets/combined.png", center=True)
+    printer.image(ASSETS_PATH + "/combined.png", center=True)
     printer.ln()
     printer.cut()
 
