@@ -76,6 +76,7 @@ def generate_instructions(sentences_dict: dict, n):
     result = random.sample(safety_notes, safety_notes_count)
     inst = random.sample(instructions, instructions_count)
 
+    # generate non-repeating indices in the range [1, len(inst)]
     random_indices = []
     while len(random_indices) < conditionals_count:
         index = random.randrange(1, len(inst), 2)
@@ -84,6 +85,7 @@ def generate_instructions(sentences_dict: dict, n):
 
     cond = random.sample(conditionals, conditionals_count)
 
+    # insert the conditional senctences into the instructions
     i = 0
     for index in random_indices:
         inst.insert(index, cond[i])
