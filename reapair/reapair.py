@@ -25,6 +25,7 @@ import sys
 from .helpers import get_sentences, get_template
 from pathlib import Path
 from .settings import DEFAULT_TEMPLATE
+from escpos.printer import File
 
 cwd = Path.cwd()
 
@@ -56,6 +57,31 @@ def mixupSentences(sentences, n):
         n = len(sentences)
 
     return random.sample(sentences, n)
+
+
+def print_instructions(instructions):
+    """
+    Print instructions to a thermal printer.
+    :param instructions: list of strings containing the instructions
+    """
+
+    try:
+        printer = File("/dev/usb/lp0", profile="TM-T88II")
+    except FileNotFoundError as e:
+        print("Received exception while trying to access printer:")
+        print(str(e))
+        return
+
+    if printer.paper_status() == 0:
+        print("Printer is out of paper!")
+        return
+
+    for instruction in instructions:
+        printer.textln(instruction)
+        printer.ln()
+    printer.image("assets/combined.png", center=True)
+    printer.ln()
+    printer.cut()
 
 
 @click.option(
@@ -100,8 +126,14 @@ def mixupSentences(sentences, n):
     default=False,
     help="Overwrite existing HTML output file. Default: False"
 )
+@click.option(
+    "--printer",
+    is_flag=True,
+    default=False,
+    help="Print to the thermal printer. Default: False"
+)
 @click.command()
-def cli(lang, n, quiet, html, template, out, overwrite):
+def cli(lang, n, quiet, html, template, out, overwrite, printer):
     """
     reapAir is a tool to generate and distribute useful repair instructions for your everyday life.
     """
@@ -115,6 +147,9 @@ def cli(lang, n, quiet, html, template, out, overwrite):
     if not quiet:
         for instruction in instructions:
             print(instruction)
+
+    if printer:
+        print_instructions(instructions)
 
     if html:
         try:

@@ -57,6 +57,7 @@ Usage: reapAir [OPTIONS]
   for your everyday life.
 
 Options:
+  --printer           Print to the thermal printer. Default: False
   --overwrite         Overwrite existing HTML output file. Default: False
   --out PATH          Filename of the HTML output file.
   --template PATH     Specify a custom HTML template to be used.

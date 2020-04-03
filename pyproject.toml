@@ -11,6 +11,7 @@ reapAir = 'reapair.reapair:cli'
 python = "^3.7"
 click = "^7.0"
 jinja2 = "^2.11.1"
+python-escpos = { version = "^3.0a6", allow-prereleases = true }
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
