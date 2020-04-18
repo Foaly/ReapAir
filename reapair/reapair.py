@@ -119,7 +119,7 @@ def print_instructions(instructions):
     for instruction in instructions:
         printer.textln(instruction)
         printer.ln()
-    printer.image(ASSETS_PATH + "/combined.png", center=True)
+    printer.image(ASSETS_PATH / "images/combined.png", center=True)
     printer.ln()
     printer.cut()
 
