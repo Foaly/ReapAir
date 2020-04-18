@@ -82,7 +82,7 @@ Generate 10 sentences (default) and create a html file named *example-010.html* 
 $ reapAir --html --out example-010.html --template template.html --quiet
 ```
 
-Print 15 sentences to the attached termal printer, but not to STDOUT.
+Print 15 sentences to the attached thermal printer, but not to STDOUT.
 
 ```zsh
 reapAir --quiet --printer -n 15
