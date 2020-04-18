@@ -2,7 +2,7 @@ ReapAir
 ========
 
 <p align="center">
-  <img width="100%" src="assets/reapAir.png">
+  <img width="100%" src="reapair/assets/images/reapAir_logo.png">
 </p>
 
 Work less, support more.
