@@ -70,7 +70,7 @@ Options:
 
 ## Examples
 
-Generate 15 sentences and print them to STDOUT
+Generate 15 sentences and print them to STDOUT.
 
 ```zsh
 $ reapAir -n 15
@@ -80,6 +80,12 @@ Generate 10 sentences (default) and create a html file named *example-010.html* 
 
 ```zsh
 $ reapAir --html --out example-010.html --template template.html --quiet
+```
+
+Print 15 sentences to the attached termal printer, but not to STDOUT.
+
+```zsh
+reapAir --quiet --printer -n 15
 ```
 
 ## Authors
