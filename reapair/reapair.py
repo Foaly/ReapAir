@@ -25,8 +25,8 @@ import math
 
 from .helpers import get_sentences, get_template
 from pathlib import Path
-from .settings import DEFAULT_TEMPLATE
-from escpos.printer import File
+from .settings import DEFAULT_TEMPLATE, ASSETS_PATH
+from escpos.printer import File, Usb
 
 cwd = Path.cwd()
 
@@ -105,20 +105,21 @@ def print_instructions(instructions):
     """
 
     try:
-        printer = File("/dev/usb/lp0", profile="TM-T88II")
-    except FileNotFoundError as e:
-        print("Received exception while trying to access printer:")
+        printer = Usb(0x1a86, 0x7584, profile="TM-T88II")  # Vendor ID and Product ID of the 36-pin IEEE 1284 to USB converter
+    except Exception as e:
+        print("Exception while trying to access printer via USB:")
         print(str(e))
-        return
-
-    if printer.paper_status() == 0:
-        print("Printer is out of paper!")
-        return
+        try:
+            printer = File("/dev/usb/lp0", profile="TM-T88II")
+        except FileNotFoundError as e:
+            print("Received exception while trying to access printer via File:")
+            print(str(e))
+            return
 
     for instruction in instructions:
         printer.textln(instruction)
         printer.ln()
-    printer.image("assets/combined.png", center=True)
+    printer.image(ASSETS_PATH / "images/combined.png", center=True)
     printer.ln()
     printer.cut()
 
