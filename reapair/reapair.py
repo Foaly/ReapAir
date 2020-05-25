@@ -119,9 +119,11 @@ def print_instructions(instructions):
             return
 
     # print header
-    printer.set(custom_size=True, width=6, height=5)
-    printer.textln("Reperaturanweisungen")
+    printer.set(custom_size=True, width=4, height=3)
+    printer.textln(" Reparatur")
+    printer.textln(" anweisung")
     printer.set()  # reset to default
+    printer.ln(2)
 
     for instruction in instructions:
         printer.textln(instruction)
