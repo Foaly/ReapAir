@@ -131,10 +131,11 @@ def print_instructions(instructions):
 def listen_to_serial(instructions):
     buffer = deque(maxlen=5)
     with Serial('/dev/ttyS0', 38400, timeout=1) as ser:
+        print("Listening on '/dev/ttxS0'")
         while True:
             byte = ser.read()
             buffer.append(byte)
-            if "".join(buffer) == "Print":
+            if b"".join(buffer).decode('utf8') == "Print":
                 print_instructions(instructions)
             sleep(0.01)  # 10ms
 
