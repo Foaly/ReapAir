@@ -86,7 +86,7 @@ def generate_instructions(sentences_dict: dict, n):
 
     cond = random.sample(conditionals, conditionals_count)
 
-    # insert the conditional senctences into the instructions
+    # insert the conditional sentences into the instructions
     i = 0
     for index in random_indices:
         inst.insert(index, cond[i])
@@ -105,7 +105,9 @@ def print_instructions(instructions):
     """
 
     try:
-        printer = Usb(0x1a86, 0x7584, profile="TM-T88II")  # Vendor ID and Product ID of the 36-pin IEEE 1284 to USB converter
+        # Vendor ID and Product ID of the 36-pin IEEE 1284 to USB converter,
+        # this printer is so old it doesn't have USB directly
+        printer = Usb(0x1a86, 0x7584, profile="TM-T88II")
     except Exception as e:
         print("Exception while trying to access printer via USB:")
         print(str(e))
@@ -115,6 +117,11 @@ def print_instructions(instructions):
             print("Received exception while trying to access printer via File:")
             print(str(e))
             return
+
+    # print header
+    printer.set(custom_size=True, width=6, height=5)
+    printer.textln("Reperaturanweisungen")
+    printer.set()  # reset to default
 
     for instruction in instructions:
         printer.textln(instruction)
