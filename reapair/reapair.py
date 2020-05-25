@@ -22,11 +22,15 @@ import datetime
 import random
 import sys
 import math
+from serial import Serial
+from collections import deque
+from time import sleep
+from pathlib import Path
+
+from escpos.printer import File, Usb
 
 from .helpers import get_sentences, get_template
-from pathlib import Path
 from .settings import DEFAULT_TEMPLATE, ASSETS_PATH
-from escpos.printer import File, Usb
 
 cwd = Path.cwd()
 
@@ -124,6 +128,17 @@ def print_instructions(instructions):
     printer.cut()
 
 
+def listen_to_serial(instructions):
+    buffer = deque(maxlen=5)
+    with Serial('/dev/ttyS0', 38400, timeout=1) as ser:
+        while True:
+            byte = ser.read()
+            buffer.append(byte)
+            if "".join(buffer) == "Print":
+                print_instructions(instructions)
+            sleep(0.01)  # 10ms
+
+
 @click.option(
     "--lang",
     "-l",
@@ -172,8 +187,14 @@ def print_instructions(instructions):
     default=False,
     help="Print to the thermal printer. Default: False"
 )
+@click.option(
+    "--listen_serial",
+    is_flag=True,
+    default=False,
+    help="Listens to serial port 1 and prints to the thermal printer on command. Default: False"
+)
 @click.command()
-def cli(lang, n, quiet, html, template, out, overwrite, printer):
+def cli(lang, n, quiet, html, template, out, overwrite, printer, listen_serial):
     """
     reapAir is a tool to generate and distribute useful repair instructions for your everyday life.
     """
@@ -186,6 +207,10 @@ def cli(lang, n, quiet, html, template, out, overwrite, printer):
         sys.exit(f"Value for '-n' has to be greater than 0. Received: {n}")
 
     instructions = generate_instructions(sentences_dict, n)
+
+    if listen_serial:
+        listen_to_serial(instructions)
+        return
 
     if not quiet:
         for instruction in instructions:
