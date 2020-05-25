@@ -131,14 +131,17 @@ def print_instructions(instructions):
     printer.cut()
 
 
-def listen_to_serial(instructions):
-    buffer = deque(maxlen=5)
-    with Serial('/dev/ttyS0', 38400, timeout=1) as ser:
-        print("Listening on '/dev/ttxS0'")
+def listen_to_serial(sentences_dict):
+    ringbuffer = deque(maxlen=5)
+    port = "/dev/ttyS0"
+    with Serial(port, baudrate=38400, timeout=1) as ser:
+        print("Listening on '" + port + "'")
         while True:
             byte = ser.read()
-            buffer.append(byte)
-            if b"".join(buffer).decode('utf8') == "Print":
+            ringbuffer.append(byte)
+            # we expect the sequence "Print"
+            if b"".join(ringbuffer).decode('utf8') == "Print":
+                instructions = generate_instructions(sentences_dict, 10)
                 print_instructions(instructions)
             sleep(0.01)  # 10ms
 
@@ -209,7 +212,7 @@ def cli(lang, n, quiet, html, template, out, overwrite, printer, listen_serial):
         sys.exit(e)
 
     if listen_serial:
-        listen_to_serial(instructions)
+        listen_to_serial(sentences_dict)
         return
 
     if not quiet:
