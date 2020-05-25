@@ -30,7 +30,7 @@ from pathlib import Path
 from escpos.printer import File, Usb
 
 from .helpers import get_sentences, get_template
-from .settings import DEFAULT_TEMPLATE, ASSETS_PATH
+from .settings import DEFAULT_TEMPLATE, ASSETS_PATH, SENTENCES
 
 cwd = Path.cwd()
 
@@ -59,6 +59,9 @@ def generate_instructions(sentences_dict: dict, n):
     Selects a mix of sentences according to a predefined distribution
     from the different lists contained in the dict.
     """
+    if n < 1:
+        raise ValueError(f"Value for '-n' has to be greater than 0. Received: {n}")
+
     if not isinstance(sentences_dict, dict):
         raise TypeError(f"'sentence_dict' must be of type 'dict', instead got '{type(sentences_dict)}'")
 
@@ -143,7 +146,7 @@ def listen_to_serial(instructions):
 @click.option(
     "--lang",
     "-l",
-    type=click.Choice(["de_DE"]),
+    type=click.Choice(SENTENCES.keys()),
     default="de_DE",
     help="Set the language of the generated repair instructions.",
 )
@@ -201,13 +204,9 @@ def cli(lang, n, quiet, html, template, out, overwrite, printer, listen_serial):
     """
     try:
         sentences_dict = get_sentences(lang)
+        instructions = generate_instructions(sentences_dict, n)
     except Exception as e:
         sys.exit(e)
-
-    if n < 1:
-        sys.exit(f"Value for '-n' has to be greater than 0. Received: {n}")
-
-    instructions = generate_instructions(sentences_dict, n)
 
     if listen_serial:
         listen_to_serial(instructions)
