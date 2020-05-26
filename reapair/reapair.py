@@ -24,7 +24,6 @@ import sys
 import math
 from serial import Serial
 from collections import deque
-from time import sleep
 from pathlib import Path
 
 from escpos.printer import File, Usb
@@ -137,13 +136,16 @@ def listen_to_serial(sentences_dict):
     with Serial(port, baudrate=38400, timeout=1) as ser:
         print("Listening on '" + port + "'")
         while True:
-            byte = ser.read()
-            ringbuffer.append(byte)
-            # we expect the sequence "Print"
-            if b"".join(ringbuffer).decode('utf8') == "Print":
-                instructions = generate_instructions(sentences_dict, 10)
-                print_instructions(instructions)
-            sleep(0.01)  # 10ms
+            try:
+                byte = ser.read()
+                ringbuffer.append(byte)
+                # we expect the sequence "Print"
+                if b"".join(ringbuffer).decode('utf8') == "Print":
+                    instructions = generate_instructions(sentences_dict, 10)
+                    print_instructions(instructions)
+            except Exception as e:
+                print(e)
+                break
 
 
 @click.option(
