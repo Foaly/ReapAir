@@ -22,11 +22,14 @@ import datetime
 import random
 import sys
 import math
+from serial import Serial
+from collections import deque
+from pathlib import Path
+
+from escpos.printer import File, Usb
 
 from .helpers import get_sentences, get_template
-from pathlib import Path
-from .settings import DEFAULT_TEMPLATE, ASSETS_PATH
-from escpos.printer import File, Usb
+from .settings import DEFAULT_TEMPLATE, ASSETS_PATH, SENTENCES
 
 cwd = Path.cwd()
 
@@ -55,6 +58,9 @@ def generate_instructions(sentences_dict: dict, n):
     Selects a mix of sentences according to a predefined distribution
     from the different lists contained in the dict.
     """
+    if n < 1:
+        raise ValueError(f"Value for '-n' has to be greater than 0. Received: {n}")
+
     if not isinstance(sentences_dict, dict):
         raise TypeError(f"'sentence_dict' must be of type 'dict', instead got '{type(sentences_dict)}'")
 
@@ -133,10 +139,28 @@ def print_instructions(instructions):
     printer.cut()
 
 
+def listen_to_serial(sentences_dict):
+    ringbuffer = deque(maxlen=5)
+    port = "/dev/ttyS0"
+    with Serial(port, baudrate=38400, timeout=1) as ser:
+        print("Listening on '" + port + "'")
+        while True:
+            try:
+                byte = ser.read()
+                ringbuffer.append(byte)
+                # we expect the sequence "Print"
+                if b"".join(ringbuffer).decode('utf8') == "Print":
+                    instructions = generate_instructions(sentences_dict, 10)
+                    print_instructions(instructions)
+            except Exception as e:
+                print(e)
+                break
+
+
 @click.option(
     "--lang",
     "-l",
-    type=click.Choice(["de_DE"]),
+    type=click.Choice(SENTENCES.keys()),
     default="de_DE",
     help="Set the language of the generated repair instructions.",
 )
@@ -181,20 +205,26 @@ def print_instructions(instructions):
     default=False,
     help="Print to the thermal printer. Default: False"
 )
+@click.option(
+    "--listen_serial",
+    is_flag=True,
+    default=False,
+    help="Listens to serial port 1 and prints to the thermal printer on command. Default: False"
+)
 @click.command()
-def cli(lang, n, quiet, html, template, out, overwrite, printer):
+def cli(lang, n, quiet, html, template, out, overwrite, printer, listen_serial):
     """
     reapAir is a tool to generate and distribute useful repair instructions for your everyday life.
     """
     try:
         sentences_dict = get_sentences(lang)
+        instructions = generate_instructions(sentences_dict, n)
     except Exception as e:
         sys.exit(e)
 
-    if n < 1:
-        sys.exit(f"Value for '-n' has to be greater than 0. Received: {n}")
-
-    instructions = generate_instructions(sentences_dict, n)
+    if listen_serial:
+        listen_to_serial(sentences_dict)
+        return
 
     if not quiet:
         for instruction in instructions:
