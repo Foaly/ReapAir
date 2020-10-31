@@ -34,7 +34,7 @@ from .settings import DEFAULT_TEMPLATE, ASSETS_PATH, SENTENCES
 cwd = Path.cwd()
 
 
-def generateHTML(instructions, template_path, out, overwrite=False):
+def generate_html(instructions, template_path, out, overwrite=False):
     """
     Renders a HTML file ready to be printed and saves it at the given location.
     """
@@ -51,6 +51,7 @@ def generateHTML(instructions, template_path, out, overwrite=False):
         raise FileExistsError(f"File {out} already exists and will not be overwritten.")
     with open(out_path, "w") as outfile:
         outfile.write(result)
+        print(f"Saved HTML file to: {out_path}")
 
 
 def generate_instructions(sentences_dict: dict, n):
@@ -190,7 +191,7 @@ def listen_to_serial(sentences_dict):
 @click.option(
     "--out",
     type=click.Path(),
-    default=f"reapair_{datetime.datetime.now().isoformat()}.html",
+    default=f"html_rendering/reapair_{datetime.datetime.now().isoformat()}.html",
     help="Filename of the HTML output file.",
 )
 @click.option(
@@ -235,6 +236,6 @@ def cli(lang, n, quiet, html, template, out, overwrite, printer, listen_serial):
 
     if html:
         try:
-            generateHTML(instructions, template, out, overwrite)
+            generate_html(instructions, template, out, overwrite)
         except Exception as e:
             sys.exit(e)
