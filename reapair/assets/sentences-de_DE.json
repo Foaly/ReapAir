@@ -75,7 +75,9 @@
         "Hantieren Sie nicht mit Gegenständen im Röstschacht.",
         "Tauchen Sie weder den Toaster selbst noch Netzkabel- oder Stecker in Wasser oder andere Flüssigkeiten.",
         "Benutzen Sie zum Reinigen keinen Dampfreiniger.",
-        "Berühren Sie keine Metallteile und fassen Sie nicht in den Röstschacht."
+        "Berühren Sie keine Metallteile und fassen Sie nicht in den Röstschacht.",
+        "Kinder erkennen nicht die Gefahren, die beim Umgang mit Elektrogeräten entstehen können. Deshalb Keinder niemals unbeaufsichtigt mit Elektrgeräten arbeiten lassen.",
+        "Merke: Nach fest kommt lose."
     ],
     "instructions": [
         "Ersetzen Sie alle Kunststoff- und Gummiteile mit Neuteilen aus dem Reparatursatz.",
@@ -214,6 +216,11 @@
         "Benutzen Sie das Gerät nicht im Freien.",
         "Leeren Sie die Krümelschublade regelmäßig.",
         "Stellen Sie mit dem Regler 8 einen mittleren Bräunungsgrad ein.",
-        "Immer alles richtig machen!"
+        "Immer alles richtig machen!",
+        "Einige Anweisungen in der vorliegenden Reperaturanweisung können gänigen Sicherheitsregeln wiedersprechen, befolgen Sie diese trotzdem."
+    ],
+    "product_names": [
+        "MasterBlaster 3000",
+        "Fluxkompensator"
     ]
 }
