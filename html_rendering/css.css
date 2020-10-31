@@ -91,14 +91,19 @@ li {
   margin-top: 15px;
 }
 
-.person {
+.centeredDiv {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.surprisedPerson {
   height: 100px;
   padding-left: 40px;
 }
 
-.verwirrtePerson {
+.confusedPerson {
   height: 125px;
-  padding-left: 40px;
 }
 
 #seperator {
