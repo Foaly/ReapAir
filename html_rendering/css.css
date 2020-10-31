@@ -3,6 +3,7 @@ body {
   font-family: Helvetica;
 }
 
+/* A4 layout for HTML */
 section.page {
   background: white;
   display: block;
@@ -40,16 +41,28 @@ section.page[data-size="A5"][data-layout="landscape"] {
   width: 21cm;
   height: 14.8cm;
 }
+
+/* A4 layout for printing */
+@page {
+  size: A4;
+  margin: 0px;
 }
 
 @media print {
-  body, page {
+  body, section.page {
     margin: 0;
-    box-shadow: 0;
+    box-shadow: none;
+  }
+
+  section.page[data-size="A4"][data-layout="landscape"] {
+    width: 297mm;
+    /* for some reason the height has to be 1 mm less then the actual A4 standard
+    in order to print properly in one page on Firefox */
+    height: 209mm;
   }
 }
 
-
+/* Content positioning */
 #column {
   height: 80%;
   float: left;
