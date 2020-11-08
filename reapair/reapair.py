@@ -205,7 +205,7 @@ def listen_to_serial(sentences_dict):
 @click.option(
     "--out",
     type=click.Path(),
-    default=f"html_rendering/reapair_{datetime.datetime.now().isoformat()}.html",
+    default=f"static_html_content/reapair_{datetime.datetime.now().isoformat()}.html",
     help="Filename of the HTML output file.",
 )
 @click.option(
