@@ -3,7 +3,8 @@ body {
   font-family: Helvetica;
 }
 
-page {
+/* A4 layout for HTML */
+section.page {
   background: white;
   display: block;
   margin: 0 auto;
@@ -11,44 +12,57 @@ page {
   box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
 }
 
-page[size="A4"] {  
+section.page[data-size="A4"] {
   width: 21cm;
-  height: 29.7cm; 
+  height: 29.7cm;
 }
 
-page[size="A4"][layout="landscape"] {
+section.page[data-size="A4"][data-layout="landscape"] {
   width: 29.7cm;
-  height: 21cm;  
+  height: 21cm;
 }
 
-page[size="A3"] {
+section.page[data-size="A3"] {
   width: 29.7cm;
   height: 42cm;
 }
 
-page[size="A3"][layout="landscape"] {
+section.page[data-size="A3"][data-layout="landscape"] {
   width: 42cm;
-  height: 29.7cm;  
+  height: 29.7cm;
 }
 
-page[size="A5"] {
+section.page[data-size="A5"] {
   width: 14.8cm;
   height: 21cm;
 }
 
-page[size="A5"][layout="landscape"] {
+section.page[data-size="A5"][data-layout="landscape"] {
   width: 21cm;
-  height: 14.8cm;  
+  height: 14.8cm;
+}
+
+/* A4 layout for printing */
+@page {
+  size: A4;
+  margin: 0px;
 }
 
 @media print {
-  body, page {
+  body, section.page {
     margin: 0;
-    box-shadow: 0;
+    box-shadow: none;
+  }
+
+  section.page[data-size="A4"][data-layout="landscape"] {
+    width: 297mm;
+    /* for some reason the height has to be 1 mm less then the actual A4 standard
+    in order to print properly in one page on Firefox */
+    height: 209mm;
   }
 }
 
-
+/* Content positioning */
 #column {
   height: 80%;
   float: left;
@@ -76,13 +90,13 @@ ul {
 }
 
 ul li:before {
-  content: '—';
+  content: '–';
   padding-right: 10px;
 }
 
 ul li{
   padding-left: 40px;
-  text-indent: -27px;
+  text-indent: -20px;
 }
 
 li {
@@ -91,14 +105,19 @@ li {
   margin-top: 15px;
 }
 
-.person {
+.centeredDiv {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.surprisedPerson {
   height: 100px;
   padding-left: 40px;
 }
 
-.verwirrtePerson {
+.confusedPerson {
   height: 125px;
-  padding-left: 40px;
 }
 
 #seperator {
@@ -114,7 +133,7 @@ li {
   display: block;
 }
 
-#chapterTitle {
+.chapterTitle {
   margin: 0px 5px;
   font-size: 10pt;
   font-weight: lighter;

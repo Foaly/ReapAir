@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <page size="A4" layout="landscape">
+  <section class="page" data-size="A4" data-layout="landscape">
     <div id="column">
       <section id="content">
         <h1 id="heading">Reperaturanweisungen</h1>
@@ -35,13 +35,15 @@
           <li>Kennzeichnen Sie geprüfte Geräte, um sie von den nicht geprüften Geräten unterscheiden zu können.</li>
           <li>Schalten Sie den Computer aus.</li>
         </ul>
-        <img class="verwirrtePerson" src="Fragezeichen.svg" alt="Verwirrte Person"/>
-        <img class="person" src="Überrascht.svg" alt="Überraschte Person"/>
+        <div class="centeredDiv">
+          <img class="confusedPerson" src="images/confused_thinking.svg" alt="Zeichnung einer verwirrten Person"/>
+          <img class="surprisedPerson" src="images/surprised.svg" alt="Zeichnung einer überraschten Person"/>
+        </div>
       </section>
       </div>
     <div id="seperator"></div>
-    <span id="pageNumberLeft">23 <span id="chapterTitle">Maintenance Manual</span></span>
-    <span id="pageNumberRight"><span id="chapterTitle">Maintenance Manual</span> 24</span>
-  </page>
+    <span id="pageNumberLeft">23 <span class="chapterTitle">Maintenance Manual</span></span>
+    <span id="pageNumberRight"><span class="chapterTitle">Maintenance Manual</span> 24</span>
+  </section>
 </body>
 </html>

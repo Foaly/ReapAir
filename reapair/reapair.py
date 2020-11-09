@@ -34,23 +34,32 @@ from .settings import DEFAULT_TEMPLATE, ASSETS_PATH, SENTENCES
 cwd = Path.cwd()
 
 
-def generateHTML(instructions, template_path, out, overwrite=False):
+def generate_html(instructions, template_path):
     """
-    Renders a HTML file ready to be printed and saves it at the given location.
+    Renders instructions into HTML and
+    returns it as a string for further processing.
     """
     try:
         template = get_template(Path(template_path))
     except Exception as e:
         sys.exit(e)
 
-    result = template.render(instructions=instructions)
+    # TODO: randomize the person drawings
+    return template.render(instructions=instructions)
 
-    out_path = Path(out)
 
+def save_file(content, filepath, overwrite=False):
+    """
+    Take a string and save it into a file.
+    The overwrite flag avoids overwriting if the file already exists.
+    """
+    out_path = Path(filepath)
     if out_path.exists() and not overwrite:
-        raise FileExistsError(f"File {out} already exists and will not be overwritten.")
+        raise FileExistsError(f"File {filepath} already exists and will not be overwritten.")
+
     with open(out_path, "w") as outfile:
-        outfile.write(result)
+        outfile.write(content)
+        print(f"Saved HTML file to: {out_path}")
 
 
 def generate_instructions(sentences_dict: dict, n):
@@ -176,10 +185,16 @@ def listen_to_serial(sentences_dict):
     help="Do not print the sentences to STDOUT. Default: False",
 )
 @click.option(
-    "--html",
+    "--local_html",
     is_flag=True,
     default=False,
-    help="Render HTML output. Default: False"
+    help="Renders instructions into a local HTML file. Default: False"
+)
+@click.option(
+    "--print_html",
+    is_flag=True,
+    default=False,
+    help="Renders instructions in HTML and prints them to STDOUT. Default: False"
 )
 @click.option(
     "--template",
@@ -190,7 +205,7 @@ def listen_to_serial(sentences_dict):
 @click.option(
     "--out",
     type=click.Path(),
-    default=f"reapair_{datetime.datetime.now().isoformat()}.html",
+    default=f"static_html_content/reapair_{datetime.datetime.now().isoformat()}.html",
     help="Filename of the HTML output file.",
 )
 @click.option(
@@ -212,7 +227,7 @@ def listen_to_serial(sentences_dict):
     help="Listens to serial port 1 and prints to the thermal printer on command. Default: False"
 )
 @click.command()
-def cli(lang, n, quiet, html, template, out, overwrite, printer, listen_serial):
+def cli(lang, n, quiet, local_html, print_html, template, out, overwrite, printer, listen_serial):
     """
     reapAir is a tool to generate and distribute useful repair instructions for your everyday life.
     """
@@ -233,8 +248,12 @@ def cli(lang, n, quiet, html, template, out, overwrite, printer, listen_serial):
     if printer:
         print_instructions(instructions)
 
-    if html:
-        try:
-            generateHTML(instructions, template, out, overwrite)
-        except Exception as e:
-            sys.exit(e)
+    if local_html or print_html:
+        html = generate_html(instructions, template)
+        if print_html:
+            print(html)
+        if local_html:
+            try:
+                save_file(html, out, overwrite)
+            except Exception as e:
+                sys.exit(e)
