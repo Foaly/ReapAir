@@ -57,11 +57,19 @@ Usage: reapAir [OPTIONS]
   for your everyday life.
 
 Options:
+  --listen_serial     Listens to serial port 1 and prints to the thermal
+                      printer on command. Default: False
+
   --printer           Print to the thermal printer. Default: False
   --overwrite         Overwrite existing HTML output file. Default: False
   --out PATH          Filename of the HTML output file.
   --template PATH     Specify a custom HTML template to be used.
-  --html              Render HTML output. Default: False
+  --print_html        Renders instructions in HTML and prints them to STDOUT.
+                      Default: False
+
+  --local_html        Renders instructions into a local HTML file. Default:
+                      False
+
   --quiet             Do not print the sentences to STDOUT. Default: False
   -n INTEGER          Number of instructions to be created. Default: 10
   -l, --lang [de_DE]  Set the language of the generated repair instructions.
