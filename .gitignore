@@ -8,3 +8,6 @@ __pycache__
 
 #PyCharm
 .idea/*
+
+# HTML files
+static_html_content/*.html
