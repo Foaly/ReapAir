@@ -74,9 +74,17 @@ section.page[data-size="A5"][data-layout="landscape"] {
 
 #heading {
   text-align: center;
-  padding-bottom: 50px;
+  padding-bottom: 15px;
   margin: 0px;
   font-size: 23pt;
+}
+
+#subheading {
+  text-align: center;
+  font-size: 11pt;
+  margin: 0px;
+  padding-bottom: 20px;
+  font-weight: normal;
 }
 
 #content {
